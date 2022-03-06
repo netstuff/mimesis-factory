@@ -2,7 +2,7 @@ import factory
 import pytest
 from mimesis import builtins
 from mimesis.enums import Gender
-from mimesis.exceptions import UnsupportedField
+from mimesis.exceptions import FieldError
 from pytest_factoryboy import register
 
 from mimesis_factory import MimesisField
@@ -36,7 +36,7 @@ class FactoryWithProviders(factory.Factory):
 
 
 def test_factory_with_not_extended_providers(factory_with_no_providers):
-    with pytest.raises(UnsupportedField):
+    with pytest.raises(FieldError):
         factory_with_no_providers()
 
 

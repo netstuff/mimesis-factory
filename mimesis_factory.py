@@ -11,7 +11,7 @@ from typing import (
 )
 
 from factory import declarations
-from mimesis import locales
+from mimesis.locales import Locale
 from mimesis.providers.base import BaseProvider
 from mimesis.providers.generic import Generic
 from mimesis.schema import Field
@@ -29,7 +29,7 @@ class MimesisField(declarations.BaseDeclaration):
     """
 
     _cached_instances: ClassVar[Dict[_CacheKey, Field]] = {}
-    _default_locale: ClassVar[str] = locales.DEFAULT_LOCALE
+    _default_locale: ClassVar[str] = Locale.DEFAULT
 
     def __init__(
         self, field: str, locale: Optional[str] = None, **kwargs,
